@@ -1,0 +1,19 @@
+{%extends "layout.html"%}
+
+{%block title%}main{%endblock%}
+
+{%block main%}
+<main>
+    <div>
+            <form action="/" method="post">
+                <button type="submit" class="btn btn-outline-primary" name="account" value="login">login</button>
+                <button type="submit" class="btn btn-outline-primary" name="account" value="register">register</button>
+            </form>
+    </div>
+</main>
+<footer>
+    <form action="/" method="get">
+        <button type="submit" class="btn btn-outline-primary">go back</button>
+    </form>
+</footer>
+{%endblock%}

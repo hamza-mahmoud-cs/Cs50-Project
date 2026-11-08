@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{%block title%}add medicine{%endblock%}
+
+{%block main%}
+<main>
+<form action="/add_medicine" method="post">
+    <div>
+    <input name="medicine name" placeholder="medicine name" type="text" autofocus autocomplete="off">
+    <input name="parcode" placeholder="parcode" type="text" autocomplete="off">
+    </div>
+    <div>
+    <input name="description" placeholder="description" type="text" autocomplete="off">
+    <input name="price" placeholder="price" type="text" autocomplete="off">
+    </div>
+    <div>
+    <button type="submit" class="btn btn-outline-primary" >add</button>
+    </div>
+</form>
+</main>
+<footer>
+<form action="/pharmacy" method="get">
+    <button type="submit" class="btn btn-outline-primary" >go back</button>
+</form>
+</footer>
+{%endblock%}
+

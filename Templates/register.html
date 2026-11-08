@@ -1,0 +1,29 @@
+{%extends "layout.html"%}
+
+{%block title%}register{%endblock%}
+
+{% block main%}
+<main>
+    <form action="/register" method="post">
+        <div>
+        <input autocomplete="off" autofocus name="name" type="text" placeholder="pharmacy name">
+        <input autocomplete="off" name="password" type="text" placeholder="password">
+        <input autocomplete="off" name="username" type="text" placeholder="user name">
+        </div>
+        <div>
+        <input autocomplete="off" name="phone" type="text" placeholder="phone number">
+        <input autocomplete="off" name="addres" type="text" placeholder="pharmacy addres">
+        <input autocomplete="off" name="working hours" type="text" placeholder="working hours">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-outline-primary">register</button>
+        </div>
+    </form>
+</main>
+<footer>
+    <form action="/" method="post">
+        <button type="submit" class="btn btn-outline-primary" name="page" value="pharmacy">go back</button>
+    </form>
+</footer>
+
+{%endblock%}

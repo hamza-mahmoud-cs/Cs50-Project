@@ -1,0 +1,30 @@
+{%extends "layout.html"%}
+
+
+{%block title%}AI helper{%endblock%}
+
+
+{%block main%}
+
+
+<main>
+    <h1>AI chat bot helper</h1>
+    <div id="chatbox" style="height:300px; overflow-y:auto;"></div>
+    <form id ="chatform">
+        <div class="col-md-6 col-lg-4 mx-auto">
+        <input type="text" id="userInput" class="form-control form-control-sm" placeholder="Ask a question!" required>
+        </div>
+        <button type="submit" class="btn btn-outline-primary" >send</button>
+    </form>
+</main>
+
+<footer>
+    <form action="/patient" method="get">
+        <button type="submit" class="btn btn-outline-primary" >go back</button>
+    </form>
+</footer>
+{%endblock%}
+
+{%block script%}
+<script src="{{url_for('static', filename='js/chatbot.js')}}"></script>
+{%endblock%}

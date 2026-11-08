@@ -1,0 +1,54 @@
+{%extends "layout.html"%}
+
+
+{%block title%}your pharmacy{%endblock%}
+
+{%block main%}
+<main>
+<div class="col-md-6 col-lg-4 mx-auto">
+    <input id="searchinput" class="form-control form-control-sm" type="search" autofocus placeholder="search">
+</div>
+<div class="table-responsive">
+    <form action="/pharmacy" method="post">
+        <table  class="table table-striped table-hover table-bordered my-3">
+            <thead>
+                <tr>
+                    <th>medicine name</th>
+                    <th>medicine price</th>
+                    <th>medicine availiability</th>
+                    <th>description</th>
+                    <th>parcode</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                {%for d in data%}
+                <tr>
+                    <td>{{d["name"]}}</td>
+                    <td>{{d["price"] | usd}}</td>
+                    <td>{{ "available" if d["available"] == 1 else "unavailable"}}</td>
+                    <td>{{d["description"]}}</td>
+                    <td>{{d["parcode"]}}</td>
+                    <td><button class="btn btn-outline-primary" name="availability" value="{{d['medicine_id']}}">change availability</button></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </form>
+</div>
+</main>
+<footer>
+    <form action="/add_medicine" method="get">
+        <button type="submit" class="btn-outline-primary">add new medicine</button>
+    </form>
+    <form action="/logout" method="get">
+    <button type="submit" class="btn-outline-primary">logout</button>
+    </form>
+    <form action="/" method="get">
+        <button type="submit" class="btn btn-outline-primary">go back</button>
+    </form>
+</footer>
+{%endblock%}
+
+{%block script%}
+<script src="{{url_for('static', filename='js/search_table.js')}}"></script>
+{%endblock%}

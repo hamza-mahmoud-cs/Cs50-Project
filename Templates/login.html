@@ -1,0 +1,22 @@
+{%extends "layout.html"%}
+
+{%block title%}Login{%endblock%}
+
+{%block main%}
+<main>
+    <form action="/login" method="post">
+        <div>
+        <input autocomplete="off" autofocus type="text" name="username" placeholder="user name">
+        <input autocomplete="off" type="text" name="password" placeholder="password">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-outline-primary">login</button>
+        </div>
+    </form>
+</main>
+<footer>
+    <form action="/" mehod="post">
+        <button type="submit" name="page" value="pharmacy" class="btn btn-outline-primary">go back</button>
+    </form>
+</footer>
+{%endblock%}

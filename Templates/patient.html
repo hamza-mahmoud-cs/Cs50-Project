@@ -1,0 +1,55 @@
+{%extends "layout.html"%}
+
+{%block title%}patient{%endblock%}
+
+{%block main%}
+
+<main>
+<div class="col-md-6 col-lg-4 mx-auto">
+    <input id="searchinput" class="form-control form-control-sm" type="search" autofocus placeholder="search">
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered my-3">
+        <thead>
+            <tr>
+                <th>pharmacy name</th>
+                <th>address</th>
+                <th>work hours</th>
+                <th>phone</th>
+                <th>medicine name</th>
+                <th>price</th>
+                <th>parcode</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        {%for d in data%}
+            <tr>
+                <td>{{d["pharmacy_name"]}}</td>
+                <td>{{d["address"]}}</td>
+                <td>{{d["work_hours"]}}</td>
+                <td>{{d["phone"]}}</td>
+                <td>{{d["medicine_name"]}}</td>
+                <td>{{d["price"] | usd}}</td>
+                <td>{{d["parcode"]}}</td>
+                <td>{{d["description"]}}</td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</div>
+</main>
+<footer>
+    <form action="/ai" method="get">
+    <button type="submit" class="btn btn-outline-primary">AI helper</button>
+    </form>
+    <form action="/" method="get">
+        <button type="submit" class="btn btn-outline-primary">go back</button>
+    </form>
+</footer>
+    {%endblock%}
+
+{%block script%}
+<script src="{{url_for('static', filename='js/search_table.js')}}"></script>
+{%endblock%}

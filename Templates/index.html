@@ -1,0 +1,15 @@
+{%extends "layout.html"%}
+
+{%block title%}Home{%endblock%}
+
+{%block main%}
+<main>
+    <h1>Choose an option!</h1>
+    <div>
+        <form action="/" method="post">
+            <button type="submit" class="btn btn-outline-primary" name="page" value="pharmacy">pharmacy</button>
+            <button type="submit" class="btn btn-outline-primary" name="page" value="patient">patient</button>
+        </form>
+    </div>
+</main>
+{%endblock%}
